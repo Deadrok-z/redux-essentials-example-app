@@ -1,9 +1,9 @@
-import { createSlice } from '@reduxjs/toolkit'
-import { nanoid } from '@reduxjs/toolkit'
+import { createSlice, nanoid } from '@reduxjs/toolkit'
+import { sub } from 'date-fns'
 
 const initialState = [
-  { id: '1', title: 'citation', content: 'Победить не берусь, перехитрить попробую.', date: '1812-07-07T13:53:39.410Z', user:"2" },
-  { id: '2', title: 'citation', content: 'Не ищите злой умысел там, где все можно объяснить глупостью.', date: '1812-07-07T13:53:39.410Z', user:"0" }
+  { id: '1', title: 'citation', content: 'Случай правит миром.', date: sub(new Date(1810, 5, 5), { minutes: 10}).toISOString(), user:"0" },
+  { id: '2', title: 'citation', content: 'Победить не берусь, перехитрить попробую.', date: sub(new Date(1812, 8, 16), { minutes: 10}).toISOString(), user:"2" }
 ]
 
 const postsSlice = createSlice({
