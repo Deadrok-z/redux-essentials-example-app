@@ -6,7 +6,6 @@ import { PostAuthor } from './PostAuthor'
 import { TimeAgo } from './TimeAgo'
 import { ReactionButtons } from './ReactionButtons'
 import {
-  selectAllPosts,
   fetchPosts,
   selectPostIds,
   selectPostById
@@ -36,7 +35,6 @@ PostExcerpt = React.memo(PostExcerpt)
 export const PostsList = () => {
   const dispatch = useDispatch()
   const orderedPostIds = useSelector(selectPostIds)
-  const posts = useSelector(selectAllPosts)
   const postStatus = useSelector((state) => state.posts.status)
   const error = useSelector((state) => state.posts.error)
 
