@@ -11,10 +11,6 @@ export const SinglePostPage = ({ match }) => {
 
   const post = useSelector(state => selectPostById(state, postId))
 
-  // const post = useSelector(state =>
-  //   state.posts.find(post => post.id === postId)
-  // )
-
   if (!post) {
     return (
       <section>
