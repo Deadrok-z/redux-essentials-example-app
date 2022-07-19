@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { Spinner } from '../../components/Spinner'
 import { useGetPostQuery, useEditPostMutation } from '../api/apiSlice'
 
 export const EditPostForm = ({ match }) => {
@@ -23,6 +24,8 @@ export const EditPostForm = ({ match }) => {
     }
   }
 
+  const spinner = isLoading ? <Spinner text="Saving..." /> : null
+
   return (
     <section>
       <h2>Edit Post</h2>
@@ -35,6 +38,7 @@ export const EditPostForm = ({ match }) => {
           placeholder="What's on your mind?"
           value={title}
           onChange={onTitleChanged}
+          disabled={isLoading}
         />
         <label htmlFor="postContent">Content:</label>
         <textarea
@@ -42,11 +46,13 @@ export const EditPostForm = ({ match }) => {
           name="postContent"
           value={content}
           onChange={onContentChanged}
+          disabled={isLoading}
         />
       </form>
-      <button type="button" onClick={onSavePostClicked}>
+      <button type="button" onClick={onSavePostClicked} disabled={isLoading}>
         Save Post
       </button>
+      {spinner}
     </section>
   )
 }
